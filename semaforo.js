@@ -1,6 +1,7 @@
 const img = document.getElementById('img');
 const botoes = document.getElementById('botoes');
-let colesIndex = 0;
+const desligar = document.getElementById('desligar');
+let coresIndex = 0;
 let intervalId = null;
 
 const semaforo = ( event ) => {
@@ -11,10 +12,10 @@ const semaforo = ( event ) => {
 
 const nextIndex = () => {
 
-    if(colorIndex < 2){
-        colorIndex++;
+    if(coresIndex < 2){
+        coresIndex++;
     } else {
-        colorIndex = 0;
+        coresIndex = 0;
     }
     
 }
@@ -30,11 +31,16 @@ const pararAutomatico = () => {
     clearInterval( intervalId);
 }
 
+const desligarSemaforo = () => {
+    img.src = './images/desligado.png';
+}
+
 const ligar = {
-    'vermelho' : () => img.scr = './images/vermelho.png',
-    'amarelo' : () => img.scr = './images/amarelo.png',
-    'verde' : () => img.scr = './images/verde.png',
+    'vermelho' : () => img.src = './images/vermelho.png',
+    'amarelo' : () => img.src = './images/amarelo.png',
+    'verde' : () => img.src = './images/verde.png',
     'automatico' : () => intervalId = setInterval(trocarCor, 1000 )
 }
 
 botoes.addEventListener('click', semaforo);
+desligar.addEventListener('click', desligarSemaforo);

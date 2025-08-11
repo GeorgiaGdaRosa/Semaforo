@@ -15,4 +15,7 @@ main {
 
 .buttons {
     width: 80px;
+    background-color: darkgray;
+    padding: 5px;
+    border-radius: 5px;
 }
